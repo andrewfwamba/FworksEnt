@@ -6,14 +6,14 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div className="bg-gray-300 w-full mx-auto">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
+    <div className="h-screen bg-gray-200 flex flex-col text-center justify-center items-center">
+      <h1 className="font-bold text-lg text-gray-800">Oops!</h1>
+      <p className="italic">Sorry, an unexpected error has occurred.</p>
+      <p className="text-lg">
         <i>{error.statusText || error.message}</i>
       </p>
-      <div className="p-4 text-gray-900 italic font-bold cursor-pointer rounded-md mt-8">
-        <Link to="/">--{">"}Take me Home</Link>
+      <div className="p-4 text-gray-900 italic font-bold cursor-pointer mt-8">
+        <Link to="/">--{">"}Take me to Fireworks home</Link>
       </div>
     </div>
   );
