@@ -36,7 +36,7 @@ function Sidebar() {
               <img src={musicIcon} alt="" className="pl-2" />
               {open && (
                 <span className="text-xl font-medium whitespace-nowrap dark:text-white">
-                  Goal Quest
+                  Fireworks Ent
                 </span>
               )}
             </div>
