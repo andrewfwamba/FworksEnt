@@ -5,23 +5,31 @@ import {
   Outlet,
   Route,
   RouterProvider,
-  createHashRouter,
+  createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import ErrorPage from "./components/errorpage";
-import Home from "./routes/Home";
 
-import { ThemeProvider } from "./components/ThemeContext";
-import Background from "./components/Background";
-import App from "./App";
+import Discover from "./routes/Discover";
+import ErrorPage from "./components/errorpage";
+import Sidebar from "./components/sidebar";
+
+const Applayout = () => {
+  <>
+    <Sidebar />
+    <Outlet />
+  </>;
+};
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Sidebar />} errorElement={<ErrorPage />}>
+      <Route path="/discover" element={<Discover />} />
+    </Route>
+  )
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <Background>
-        <App />
-      </Background>
-    </ThemeProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
