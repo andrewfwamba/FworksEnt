@@ -9,7 +9,7 @@ const Menus = [
   { title: "Dashboard", path: "/dashboard", src: discoverIcon },
   { title: "music", path: "/music", src: musicIcon },
   { title: "Profile", path: "/profile", src: userIcon },
-  { title: "Signin", path: "/login", src: logoutIcon, gap: "true" },
+  { title: "Sign out", path: "/login", src: logoutIcon, gap: "true" },
 ];
 
 function Sidebar() {
