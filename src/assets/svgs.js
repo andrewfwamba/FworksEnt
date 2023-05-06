@@ -1,4 +1,4 @@
-export const discoverIcon = (
+const discoverIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -15,7 +15,7 @@ export const discoverIcon = (
   </svg>
 );
 
-export const musicIcon = (
+const musicIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -31,7 +31,7 @@ export const musicIcon = (
     />
   </svg>
 );
-export const userIcon = (
+const userIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -48,7 +48,7 @@ export const userIcon = (
   </svg>
 );
 
-export const logoutIcon = (
+const logoutIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -64,3 +64,5 @@ export const logoutIcon = (
     />
   </svg>
 );
+
+export { discoverIcon, musicIcon, userIcon, logoutIcon };
