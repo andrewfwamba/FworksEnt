@@ -5,6 +5,7 @@ import {
   Outlet,
   Route,
   RouterProvider,
+  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -12,18 +13,20 @@ import {
 import Discover from "./routes/Discover";
 import ErrorPage from "./components/errorpage";
 import Sidebar from "./components/sidebar";
+import Home from "./routes/Home";
+import Music from "./routes/Music";
 
-const Applayout = () => {
-  <>
-    <Sidebar />
-    <Outlet />
-  </>;
-};
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Sidebar />} errorElement={<ErrorPage />}>
-      <Route path="/discover" element={<Discover />} />
-    </Route>
+    <>
+      <Route path="/" errorElement={<ErrorPage />} element={<Sidebar />}>
+        <Route errorElement={<ErrorPage />}>
+          <Route index path="/home" element={<Home />} />
+          <Route path="/discover" element={<Discover />} />
+          <Route path="/music" element={<Music />} />
+        </Route>
+      </Route>
+    </>
   )
 );
 
