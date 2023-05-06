@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { discoverIcon, logoutIcon, musicIcon, userIcon } from "../assets/svgs";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import HamburgerButton from "./HamburgerMenuButton/HamburgerButton";
 import Nav from "./Nav";
 
 const Menus = [
-  { title: "Dashboard", path: "/dashboard", src: discoverIcon },
+  { title: "discover", path: "/discover", src: discoverIcon },
   { title: "music", path: "/music", src: musicIcon },
   { title: "Profile", path: "/profile", src: userIcon },
   { title: "Sign out", path: "/login", src: logoutIcon, gap: "true" },
 ];
 
-function Sidebar() {
+export default function Sidebar({ children }) {
   const [open, setOpen] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
@@ -31,7 +31,7 @@ function Sidebar() {
             } absolute text-3xl bg-white fill-slate-800  rounded-full cursor-pointer top-9 -right-4 dark:fill-gray-400 dark:bg-gray-800`}
             onClick={() => setOpen(!open)}
           />
-          <Link to="/">
+          <Link to="/home">
             <div className={`flex ${open && "gap-x-4"} items-center`}>
               <img src={musicIcon} alt="" className="pl-2" />
               {open && (
@@ -66,7 +66,7 @@ function Sidebar() {
           </ul>
         </div>
         {/* Mobile Menu */}
-        <div className="pt-3">
+        <div className="">
           <HamburgerButton
             setMobileMenu={setMobileMenu}
             mobileMenu={mobileMenu}
@@ -98,10 +98,12 @@ function Sidebar() {
         </div>
         <div className="grow">
           <Nav />
+          <div className="">
+            {/* {children} */}
+            <Outlet />
+          </div>
         </div>
       </div>
     </>
   );
 }
-
-export default Sidebar;
