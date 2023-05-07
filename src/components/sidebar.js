@@ -19,11 +19,11 @@ export default function Sidebar({ children }) {
   return (
     <>
       {/* <Nav /> */}
-      <div className="flex flex-auto h-screen">
+      <div className="flex flex-auto">
         <div
           className={`${
             open ? "w-60" : "w-fit"
-          } hidden sm:block relative h-screen duration-300 bg-gray-100 border-r border-gray-200 dark:border-gray-600 p-5 dark:bg-slate-800`}
+          } hidden sm:block relative duration-300 bg-gray-100 border-r border-gray-200 dark:border-gray-600 p-5 dark:bg-slate-800`}
         >
           <BsArrowLeftCircle
             className={`${
@@ -31,7 +31,7 @@ export default function Sidebar({ children }) {
             } absolute text-3xl bg-white fill-slate-800  rounded-full cursor-pointer top-9 -right-4 dark:fill-gray-400 dark:bg-gray-800`}
             onClick={() => setOpen(!open)}
           />
-          <Link to="/home">
+          <Link to="/">
             <div className={`flex ${open && "gap-x-4"} items-center`}>
               <img src={musicIcon} alt="" className="pl-2" />
               {open && (
@@ -42,7 +42,7 @@ export default function Sidebar({ children }) {
             </div>
           </Link>
 
-          <ul className="pt-6">
+          <ul className="pt-6 h-screen">
             {Menus.map((menu, index) => (
               <Link to={menu.path} key={index}>
                 <li
