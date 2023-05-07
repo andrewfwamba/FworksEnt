@@ -2,10 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
-  Outlet,
   Route,
   RouterProvider,
-  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -15,16 +13,22 @@ import ErrorPage from "./components/errorpage";
 import Sidebar from "./components/sidebar";
 import Home from "./routes/Home";
 import Music from "./routes/Music";
+import Profile from "./routes/Profile";
+import Signup from "./routes/Auth";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" errorElement={<ErrorPage />} element={<Sidebar />}>
+      <Route errorElement={<ErrorPage />} element={<Sidebar />}>
         <Route errorElement={<ErrorPage />}>
-          <Route index path="/home" element={<Home />} />
+          <Route index path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/music" element={<Music />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
+      </Route>
+      <Route errorElement={<ErrorPage />}>
+        <Route path="/signup" element={<Signup />} />
       </Route>
     </>
   )
