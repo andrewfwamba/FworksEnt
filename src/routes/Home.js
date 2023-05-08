@@ -8,7 +8,7 @@ function Home() {
         <div className="bg-white p-20 rounded md:row-span-2 shadow-md"></div>
         <div className="sm:col-span-2 p-20 bg-slate-400 rounded-sm shadow"></div>
       </div>
-      <div className="p-20 bg-white my-4 mx-2"></div>
+      <div className="p-20 bg-white my-4 mx-2 shadow-lg rounded"></div>
     </div>
   );
 }
