@@ -15,6 +15,7 @@ import Home from "./routes/Home";
 import Music from "./routes/Music";
 import Profile from "./routes/Profile";
 import Signup from "./routes/Auth";
+import Listen from "./routes/Listen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
           <Route index path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/music" element={<Music />} />
+          <Route path="/listen" element={<Listen />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
