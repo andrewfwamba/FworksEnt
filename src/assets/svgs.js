@@ -1,3 +1,4 @@
+import { FaDeezer } from "react-icons/fa";
 const discoverIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -64,5 +65,6 @@ const logoutIcon = (
     />
   </svg>
 );
+const listenIcon = <FaDeezer />;
 
-export { discoverIcon, musicIcon, userIcon, logoutIcon };
+export { discoverIcon, musicIcon, userIcon, listenIcon, logoutIcon };
