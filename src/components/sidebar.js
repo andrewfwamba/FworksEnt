@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { discoverIcon, logoutIcon, musicIcon, userIcon } from "../assets/svgs";
+import {
+  discoverIcon,
+  listenIcon,
+  logoutIcon,
+  musicIcon,
+  userIcon,
+} from "../assets/svgs";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import HamburgerButton from "./HamburgerMenuButton/HamburgerButton";
 import Nav from "./Nav";
 
 const Menus = [
-  { title: "discover", path: "/discover", src: discoverIcon },
-  { title: "music", path: "/music", src: musicIcon },
+  { title: "Discover", path: "/discover", src: discoverIcon },
+  { title: "Music", path: "/music", src: musicIcon },
+  { title: "Listen", path: "/listen", src: listenIcon },
   { title: "Profile", path: "/profile", src: userIcon },
   { title: "Sign out", path: "/login", src: logoutIcon, gap: "true" },
 ];
