@@ -1,4 +1,4 @@
-import { ClipLoader, BounceLoader } from "react-spinners/ClipLoader";
+import { BounceLoader } from "react-spinners/ClipLoader";
 
 const override = {
   display: "block",
