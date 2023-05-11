@@ -2,47 +2,54 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 // import AudioPlayer from "react-h5-audio-player";
-import { getMusic } from "../assets/api";
-import { listLoader } from "../assets/Loader";
+import { baseURL, getMusic, stream } from "../assets/api";
 import { PropagateLoader } from "react-spinners";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import AudioPlayer from "../components/AudioPlayer";
 
 function Listen() {
   const navigate = useNavigate();
   const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [activeStream, setActiveStream] = useState([]);
   const failed = () => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Something went wrong!",
+      html: "Something went wrong while fetching tracks try again later",
       footer: '<a href="">Why do I have this issue?</a>',
     });
   };
 
   let token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDQzZmZkM2M1NDA1MzI2MTk3OGUxYTIiLCJpYXQiOjE2ODM3MzY4ODEsImV4cCI6MTY4MzgyMzI4MX0.0ePz8S6LLCqao2t0d8IMPvCbze0Z8ZDo36AkwPqaN7Y";
-
+  const headers = { Authorization: `Bearer ${token}` };
   const getTracks = async () => {
     try {
       setLoading(true);
-      const headers = { Authorization: `Bearer ${token}` };
+
       const res = await axios.get(getMusic, {
         headers,
       });
-      if (!res.success) {
+      if (res.status === 200) {
+        setTracks(res.data.music);
+      } else if (res.error) {
         failed();
         navigate("/signup");
       }
-      setTracks(res.data.music);
+
+      console.log(res.status);
       setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false);
+      failed();
+      // setLoading(false);
     }
   };
-
+  const streamMusic = async () => {
+    axios.get(`${stream}Diamondvibes`, { headers });
+  };
   useEffect(() => {
     getTracks();
   }, []);
@@ -73,10 +80,11 @@ function Listen() {
         />
       </div> */}
       {loading && (
-        <div className="h-screen flex justify-center pt-72 bg-gray-50 text-center ">
-          <PropagateLoader color="#0E7DD5" className="mx-auto mb-20" />
+        <div className="h-[35rem] flex justify-center items-center rounded shadow-md bg-gray-50 text-center ">
+          <PropagateLoader color="#0E7DD5" className="mx-auto" />
         </div>
       )}
+
       {tracks.map((track, index) => (
         <div
           key={index}
@@ -108,6 +116,9 @@ function Listen() {
           className="w-full flex py-2 bg-pink-300 rounded-xl px-8"
         />
       </div> */}
+      <div className="w-full">
+        <AudioPlayer audiosource={`${baseURL}/api/v1/music/mp3/Diamondvibes`} />
+      </div>
     </div>
   );
 }
