@@ -16,6 +16,7 @@ import Music from "./routes/Music";
 import Profile from "./routes/Profile";
 import Signup from "./routes/Auth";
 import Listen from "./routes/Listen";
+import Entry from "./routes/Entry";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route errorElement={<ErrorPage />}>
+        <Route path="/index" element={<Entry />} />
         <Route path="/signup" element={<Signup />} />
       </Route>
     </>
