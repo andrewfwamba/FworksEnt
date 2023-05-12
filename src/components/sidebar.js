@@ -15,6 +15,8 @@ const Menus = [
   { title: "Discover", path: "/discover", src: discoverIcon },
   { title: "Music", path: "/music", src: musicIcon },
   { title: "Listen", path: "/listen", src: listenIcon },
+  { title: "Services", path: "/services", src: listenIcon },
+  { title: "Support", path: "/support", src: listenIcon },
   { title: "Profile", path: "/profile", src: userIcon },
   { title: "Sign out", path: "/login", src: logoutIcon, gap: "true" },
 ];
