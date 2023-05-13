@@ -45,22 +45,27 @@ const AudioPlayer = ({ audiosource }) => {
         onLoadedData={handleLoadedData}
       />
       <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
-      <div className="px-6 ">
-        <input
-          type="range"
-          min={0}
-          max={duration}
-          value={currentTime}
-          onChange={handleSeek}
-          className="w-full text-pink-800 cursor-pointer"
-        />
-        <div>
-          <span>{formatTime(currentTime)}</span> /{" "}
-          <span>{formatTime(duration)}</span>
+      <div className="px-6 flex">
+        <div className="w-full mr-10">
+          <input
+            type="range"
+            min={0}
+            max={duration}
+            value={currentTime}
+            onChange={handleSeek}
+            className="w-full text-pink-800 cursor-pointer"
+          />
+          <div>
+            <span>{formatTime(currentTime)}</span> /{" "}
+            <span>{formatTime(duration)}</span>
+          </div>
         </div>
+
         {/* Volume controls here */}
-        <div>
-          <label htmlFor="volume">Volume:</label>
+        <div className="flex">
+          <label htmlFor="volume mt-10" className="text-xs">
+            Volume:
+          </label>
           <input
             type="range"
             id="volume"
@@ -69,7 +74,7 @@ const AudioPlayer = ({ audiosource }) => {
             step={0.01}
             value={volume}
             onChange={handleVolumeChange}
-            className="cursor-pointer"
+            className="cursor-pointer ml-4 outline-none h-4"
           />
         </div>
       </div>
