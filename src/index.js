@@ -14,9 +14,11 @@ import Sidebar from "./components/sidebar";
 import Home from "./routes/Home";
 import Music from "./routes/Music";
 import Profile from "./routes/Profile";
-import Signup from "./routes/Auth";
+import LoginPage from "./routes/Auth";
 import Listen from "./routes/Listen";
 import Entry from "./routes/Entry";
+import SignupPage from "./routes/Signup";
+import Service from "./routes/Service";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,12 +29,14 @@ const router = createBrowserRouter(
           <Route path="/discover" element={<Discover />} />
           <Route path="/music" element={<Music />} />
           <Route path="/listen" element={<Listen />} />
+          <Route path="/services" element={<Service />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
       <Route errorElement={<ErrorPage />}>
         <Route path="/index" element={<Entry />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Route>
     </>
   )
