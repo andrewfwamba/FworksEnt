@@ -29,7 +29,6 @@ export default function Sidebar({ children }) {
   const location = useLocation();
   return (
     <>
-      {/* <Nav /> */}
       <div className="flex flex-auto">
         <div
           className={`${

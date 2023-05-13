@@ -51,7 +51,7 @@ function Profile() {
                   id="about"
                   name="about"
                   rows={3}
-                  className="block rounded-md border-0 py-4 px-2 w-3/5 text-gray-900 outline-none shadow-sm ring-1 ring-inset ring-pink-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-500 sm:text-sm sm:leading-6"
+                  className="block rounded-md border-0 py-4 px-2 md:w-3/5 text-gray-900 outline-none shadow-sm ring-1 ring-inset ring-pink-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-500 sm:text-sm sm:leading-6"
                   defaultValue={""}
                 />
               </div>

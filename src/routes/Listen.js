@@ -56,16 +56,16 @@ function Listen() {
   console.log(tracks);
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full">
       <div>
-        <p className="font-bold text-lg text-pink-800">Listen</p>
+        <p className="font-bold m-4 text-lg text-pink-800">Listen</p>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        <div className="p-20 col-span-2 bg-purple-500 rounded-xl shadow-md"></div>
+      <div className="grid lg:grid-cols-3 mx-4 gap-3">
+        <div className="p-20 lg:col-span-2 bg-purple-500 rounded-xl shadow-md"></div>
         <div className="p-20 bg-gray-400 rounded-md shadow-md"></div>
       </div>
       <div>
-        <p className="font-bold text-lg mt-2 text-pink-800">Popular</p>
+        <p className="font-bold text-lg mt-2 mx-4 text-pink-800">Popular</p>
       </div>
       {/* <div className="bg-white text-pink-800 p-7 shadow-lg shadow-pink-300 rounded m-4 ring-1 ring-pink-500 ">
         <div className="flex">
