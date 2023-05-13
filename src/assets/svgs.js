@@ -1,4 +1,6 @@
 import { FaDeezer } from "react-icons/fa";
+import { HiChatBubbleLeftRight } from "react-icons/hi2";
+import { BsBuildingFillGear } from "react-icons/bs";
 const discoverIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -66,5 +68,15 @@ const logoutIcon = (
   </svg>
 );
 const listenIcon = <FaDeezer />;
+const supportIcon = <HiChatBubbleLeftRight />;
+const servicesIcon = <BsBuildingFillGear />;
 
-export { discoverIcon, musicIcon, userIcon, listenIcon, logoutIcon };
+export {
+  discoverIcon,
+  musicIcon,
+  userIcon,
+  listenIcon,
+  logoutIcon,
+  supportIcon,
+  servicesIcon,
+};
