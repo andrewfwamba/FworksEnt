@@ -3,9 +3,9 @@ import React from "react";
 function Entry() {
   return (
     <>
-      <div className="h-20 w-full bg-gradient-to-b from-white via-gray-800 to-blue-700 ">
+      <div className="h-10 w-full bg-white ">
         {" "}
-        <h1 class="bg-gradient-to-r py-8 from-green-300 via-blue-500 to-purple-600 bg-clip-text text-xl font-extrabold text-transparent sm:text-2xl">
+        <h1 class="bg-gradient-to-r my-4 mx-8 from-black via-blue-500 to-purple-600 bg-clip-text text-xl font-extrabold text-transparent sm:text-2xl">
           Fireworks Entertainment.
         </h1>
       </div>
