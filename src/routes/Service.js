@@ -100,6 +100,7 @@ function Service() {
             <p>Achieve your dj dreams</p>
           </div>
         </div>
+        <div className="bg-white rounded p-10"></div>
       </div>
     </div>
   );

@@ -48,7 +48,16 @@ function Listen() {
     }
   };
   const streamMusic = async () => {
-    axios.get(`${stream}Diamondvibes`, { headers });
+    try {
+      const res = axios.get(`${stream}/2023mixes`, { headers });
+      console.log(res);
+      if (res.status === 200) {
+        const data = await res.data;
+        const { fileUrl } = data;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getTracks();
@@ -117,7 +126,9 @@ function Listen() {
         />
       </div> */}
       <div className="w-full">
-        <AudioPlayer audiosource={`${baseURL}/api/v1/music/mp3/Diamondvibes`} />
+        <AudioPlayer
+          audiosource={`${baseURL}/uploads//1683036791443-552903765.mp3`}
+        />
       </div>
     </div>
   );
