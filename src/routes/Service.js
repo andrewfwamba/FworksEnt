@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Carousel } from "antd";
 
 function Service() {
   const services = [
@@ -99,8 +100,25 @@ function Service() {
             <p>Join our dj academy today</p>
             <p>Achieve your dj dreams</p>
           </div>
+        </div>{" "}
+        <div className="border border-pink-700 bg-pink-300 flex justify-center mx-auto rounded p-10">
+          <Carousel className="w-[100px]" autoplay effect="fade">
+            <div className="h-[70vh]">
+              <h3 className="text-base font-bold text-gray-800">
+                Showcased service 1
+              </h3>
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-gray-600">2</h3>
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-gray-600">3</h3>
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-gray-600">4</h3>
+            </div>
+          </Carousel>
         </div>
-        <div className="bg-white rounded p-10"></div>
       </div>
     </div>
   );
