@@ -9,7 +9,7 @@ const LoginProvider = ({ children }) => {
 
   const fetchUser = async () => {
     setProcessing(true);
-    const userData = localStorage.getItem("user");
+    const userData = localStorage.getItem("token");
     let user = JSON.parse(userData);
     setUser(user);
     if (userData !== null) {
