@@ -91,7 +91,7 @@ function Service() {
           </div>
         ))}
       </div>
-      <div>
+      <div className="w-full mb-16">
         <h4 className="font-bold text-xl mb-8 border-b border-pink-700">
           Our DJ Academy
         </h4>
@@ -100,16 +100,23 @@ function Service() {
             <p>Join our dj academy today</p>
             <p>Achieve your dj dreams</p>
           </div>
-        </div>{" "}
-        <div className="border border-pink-700 bg-pink-300 flex justify-center mx-auto rounded p-10">
-          <Carousel className="w-[100px]" autoplay effect="fade">
-            <div className="h-[70vh]">
+        </div>
+        <div className="border border-pink-700 bg-pink-300 flex justify-center mx-auto rounded">
+          <Carousel className="w-[75svw]" autoplay effect="fade">
+            <div className="h-full p-10 w-full">
               <h3 className="text-base font-bold text-gray-800">
-                Showcased service 1
+                Quality Dj Services
               </h3>
+              <div className="h-full bg-gray-800">
+                <img
+                  src="https://unsplash.com/photos/JhYnL-BiP18/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDh8fGRqJTIwc2V0fGVufDB8fHx8MTY4NzM0NjMwN3ww&force=true&w=1920"
+                  alt=""
+                />
+              </div>
             </div>
             <div>
               <h3 className="text-base font-bold text-gray-600">2</h3>
+              <div className="h-screen bg-gray-900"></div>
             </div>
             <div>
               <h3 className="text-base font-bold text-gray-600">3</h3>
@@ -118,6 +125,17 @@ function Service() {
               <h3 className="text-base font-bold text-gray-600">4</h3>
             </div>
           </Carousel>
+        </div>
+      </div>
+      <div>
+        <h4 className="font-bold text-xl mb-8 border-b border-pink-700">
+          Photoshoots
+        </h4>
+        <div>
+          <div className="p-2 mb-10 border-l-4 border-pink-700">
+            <p>Get quality photos for any Occasion</p>
+            <p>Show yourself to the world</p>
+          </div>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ import Listen from "./routes/Listen";
 import Entry from "./routes/Entry";
 import SignupPage from "./routes/Signup";
 import Service from "./routes/Service";
+import LoginProvider from "./utilities/context/Context";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +46,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-  <RouterProvider router={router} />
+  <LoginProvider>
+    <RouterProvider router={router} />
+  </LoginProvider>
+
   // </React.StrictMode>
 );
