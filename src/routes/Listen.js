@@ -126,9 +126,7 @@ function Listen() {
         />
       </div> */}
       <div className="w-full">
-        <AudioPlayer
-          audiosource={`${baseURL}/uploads//1683036791443-552903765.mp3`}
-        />
+        <AudioPlayer audiosource="http://localhost:8000/storage/music/78kmCSLkY2A3AJ84Pq022E4pwBtXxDDCZMGiVpbY.mp3" />
       </div>
     </div>
   );
