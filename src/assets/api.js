@@ -1,7 +1,7 @@
-const baseURL = "https://10ea-105-165-184-2.ngrok-free.app";
+const baseURL = "localost:8000";
 
 const health = `${baseURL}/ping`;
-const getMusic = `${baseURL}/api/v1/music/get/`;
+const getMusic = `${baseURL}/api/get/music/all/`;
 const signUp = `${baseURL}/api/v1/users/create`;
 const login = `${baseURL}/api/v1/users/signin`;
 const stream = `${baseURL}/api/v1/music/mp3/stream`;
