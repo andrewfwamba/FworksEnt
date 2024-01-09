@@ -7,12 +7,13 @@ import { PropagateLoader } from "react-spinners";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import AudioPlayer from "../components/AudioPlayer";
+import { message } from "antd";
 
 function Listen() {
   const navigate = useNavigate();
   const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [activeStream, setActiveStream] = useState([]);
+  const [activeStream, setActiveStream] = useState("");
   const failed = () => {
     Swal.fire({
       icon: "error",
@@ -22,18 +23,28 @@ function Listen() {
     });
   };
 
-  let token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDQzZmZkM2M1NDA1MzI2MTk3OGUxYTIiLCJpYXQiOjE2ODM3MzY4ODEsImV4cCI6MTY4MzgyMzI4MX0.0ePz8S6LLCqao2t0d8IMPvCbze0Z8ZDo36AkwPqaN7Y";
+  let token = "1|dbABYpeqqcU7zJbITi73mhdF9lL0lYQsAgEzeUG8";
   const headers = { Authorization: `Bearer ${token}` };
   const getTracks = async () => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: "localhost:8000/api/get/music/all",
+      headers: {
+        Authorization: "Bearer 1|dbABYpeqqcU7zJbITi73mhdF9lL0lYQsAgEzeUG8",
+      },
+    };
     try {
       setLoading(true);
 
-      const res = await axios.get(getMusic, {
-        headers,
+      const res = await axios.get("http://localhost:8000/api/get/music/all", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+      console.log(res);
       if (res.status === 200) {
-        setTracks(res.data.music);
+        setTracks(res.data);
       } else if (res.error) {
         failed();
         navigate("/signup");
@@ -102,16 +113,19 @@ function Listen() {
           <div className="flex">
             <p className="font-bold text-lg pr-10">Mixes</p>
             <p className="text-base text-pink-900">{track.title}</p>
-            <p className="text-gray-400 italic px-8">by {track.artist.name}</p>
+            <p className="text-gray-400 italic px-8">by {track.user.name}</p>
           </div>
           <ReactAudioPlayer
-            src={require("../assets/Vivian-Charm-ft-Jose-Chameleone-Official-Video-Skiza-8541101_qtqQ7ZFgdxI.mp3")}
+            src={track.url}
             controls
             className="w-full flex py-2"
+            onSeeked={() => {
+              message.info("seeked");
+            }}
           />
         </div>
       ))}
-      {/* <div className="bg-white text-pink-800 p-7 shadow-lg shadow-pink-300 rounded m-4 ring-1 ring-pink-500 ">
+      {/* <div className="bg-white fixed bottom-0 text-pink-800 p-2 w-full shadow-lg shadow-pink-300 rounded m-4 ring-1 ring-pink-500 ">
         <div className="flex">
           <p className="font-bold text-lg pr-10">Dancehall</p>
           <p className="text-base text-pink-900">Dancehall vibes 2023</p>
@@ -119,14 +133,15 @@ function Listen() {
         </div>
         <ReactAudioPlayer
           src={
-            "https://www2.iis.fraunhofer.de/AAC/ChID-BLITS-EBU-Narration.mp4"
+            "http://localhost:8000/storage/music/uXwQjenbZrJds5QTcteMpXuQ3UazDHqLHbE16I6R.mp3"
+            // "https://www2.iis.fraunhofer.de/AAC/ChID-BLITS-EBU-Narration.mp4"
           }
           controls
           className="w-full flex py-2 bg-pink-300 rounded-xl px-8"
         />
       </div> */}
       <div className="w-full">
-        <AudioPlayer audiosource="http://localhost:8000/storage/music/78kmCSLkY2A3AJ84Pq022E4pwBtXxDDCZMGiVpbY.mp3" />
+        <AudioPlayer src="http://localhost:8000/storage/music/78kmCSLkY2A3AJ84Pq022E4pwBtXxDDCZMGiVpbY.mp3" />
       </div>
     </div>
   );
