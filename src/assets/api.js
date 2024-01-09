@@ -1,4 +1,4 @@
-const baseURL = "localost:8000";
+const baseURL = "http://localost:8000";
 
 const health = `${baseURL}/ping`;
 const getMusic = `${baseURL}/api/get/music/all/`;
